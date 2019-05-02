@@ -1,12 +1,5 @@
 <?php
 
-$firstName = $_POST['firstName'];
-$lName = $_POST['lastName'];
-$email = $_POST['email'];
-$pass = $_POST['pass'];
-$city = $_POST['city'];
-$zip = $_POST['zip'];
-
 $conn=new mysqli("localhost", "root", "", "fyp");
         // Check connection
         if ($conn->connect_error) {
