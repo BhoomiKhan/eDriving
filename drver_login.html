@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() { 
+  
+        $("#Login").click(function(){
+
+          var uname =$("#username").val();
+          var psw=$("#pass").val();
+
+          $.ajax({url: "Login.php",
+                  type: "POST",
+                  data: {"username":uname,
+                         "password":psw
+                        },
+                  success: function(result){
+                    alert(result);
+                  }});
+        });
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <form>
+      <h2>Driver Login</h2>
+      <div class="container">
+        <label for="uname"><b>Username:</b></label>
+        <input  type="text" id="username" placeholder="Enter Username" name="uname" required>
+        <br>
+        <label for="psw"><b>Password:</b></label>
+        <input id="pass" type="password" placeholder="Enter Password" name="psw" required>
+        <br>    
+        <button id="Login" class="btn btn-primary" type="submit">Login</button>
+        <br>
+        <label>
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+      </div>
+    </form>
+  </body>
+</html>

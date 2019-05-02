@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VIRTUAL MECHANIC ASSISTANT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script> 
+      $(document).ready(function() { 
+
+        $("#sign_up").click(function(){
+          var firstName=$("#first_name").val();
+          var lastName=$("#last_name").val();
+          var email_address=$("#email_address").val();
+          var pass=$("#pass").val();
+          var city=$("#city").val();
+          var state=$("#state").val();
+          var zip=$("#zip").val();
+
+          $.ajax({url: "AddUser.php",
+                  type: "POST",
+                  data: {"firstName":firstName,
+                         "lastName":lastName,
+                         "email":email_address,
+                         "pass":pass,
+                         "city":city,
+                         "zip":zip
+                        },
+
+                  success: function(result){
+                    alert(result);
+                  }});
+
+        });
+      });
+    </script>
+  </head>
+  <body background="bg.jpg">
+    <a href="drver_login.html">  <button>Login as Driver</button></a>
+    <div class="text-top"></div>
+    <div class="carousel-caption">
+      <h1>Virtual Mechanic Assistant</h1>
+      <h6>Drive Safe!</h6>  
+      <h1>About US!</h1>
+      <h6>No matter what you drive - from sports cars to fleet trucks - when you go in for repairs or service, 
+        you want the job done right. Whether it's just a quick oil change or major repairs, we have the 
+        experience and the state of the art equipment to get the job done. We take pride in our ability to 
+        solve any problem, providing exceptional customer service along the way.</h6></div>
+    <div>
+      <form>
+
+        <h2>New User Sign Up Here</h2>
+        <div class="col-sm-3 col-sm-offset-8">
+          <label for="validationServer01">First name</label>
+          <input  type="text" id="first_name" class="form-control is-valid" id="validationServer01" placeholder="First Name" placeholder="Mark" required>
+          <div class="valid-feedback">
+            Please type First Name
+          </div>
+          <div class="col-sm-16 col-sm-offset-12">
+            <label for="validationServer02">Last name</label>
+            <input id="last_name" type="text" class="form-control is-valid" id="validationServer02" placeholder="Last Name" placeholder="Otto" required>
+            <div class="valid-feedback">
+              Please type Last Name
+            </div>
+            <div class="col-sm-25 col-sm-offset-8">
+              <label for="validationServerUsername">Email</label>
+              <input id="email_address" type="text" class="form-control is-valid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+              <div class="valid-feedback">
+                Please enter email.
+              </div>
+
+            </div>
+            
+            <div class="col-sm-25 col-sm-offset-8">
+              <label for="validationServerUsername">Password</label>
+              <input id="pass" type="password" class="form-control is-valid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+              <div class="valid-feedback">
+                Please enter password.
+              </div>
+
+            </div>
+            
+            
+            <div class="col-sm-40 col-sm-offset-8">
+              <label for="validationServer03">City</label>
+              <input id="city" type="text" class="form-control is-valid" id="validationServer03" placeholder="City" required>
+              <div class="valid-feedback">
+                Please provide a valid city.
+              </div>
+              <div class="col-sm-50 col-sm-offset-8">
+                <label for="validationServer04">State</label>
+                <input id="state" type="text" class="form-control is-valid" id="validationServer04" placeholder="State" required>
+                <div class="valid-feedback">
+                  Please provide a valid state.
+                </div>
+                <div class="col-sm-60 col-sm-offset-8">
+                  <label for="validationServer05">Zip</label>
+                  <input id="zip" type="text" class="form-control is-valid" id="validationServer05" placeholder="Zip" required>
+                  <div class="valid-feedback">
+                    Please provide a valid zip code.
+                  </div>
+                  <div class="col-sm-60	  col-sm-offset-8">
+                    <input class="form-check-input is-valid" type="checkbox" value="" id="invalidCheck3" required>
+                    <div class="valid-feedback">
+                      Agree to terms and conditions
+                    </div>
+                    <div class="valid-feedback">
+                      You must agree before submitting.
+                    </div>
+                    <div class="col-sm-60 col-sm-offset-8">
+                      <label class="form-check-label" for="invalidCheck3">
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <div class="col-sm-65 col-sm-offset-8">
+                          <input type="checkbox"> Remember me
+                          </label>
+                        </div>
+                    </div>
+
+                    <button id="sign_up" class="btn btn-primary" type="submit">Sign Up</button>
+                    </form>
+                </div>
+
+
+                </body>
+</html>
